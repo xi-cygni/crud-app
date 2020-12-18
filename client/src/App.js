@@ -43,14 +43,12 @@ function App() {
       movieName: movieName, 
       updatedMovieReview: newMovieReview,
     });
-    console.log(movieReviewsList);
+
     const index = movieReviewsList.findIndex(element => element.movie_name === movieName);
-    console.log(index);
+
     let newMovieReviewsList = [...movieReviewsList];
-    console.log(newMovieReviewsList);
+
     newMovieReviewsList[index] = {...newMovieReviewsList[index], movie_review: newMovieReview}
-    console.log(newMovieReviewsList[index])
-    console.log(newMovieReviewsList);
 
     setMovieReviewsList(newMovieReviewsList);
   }
@@ -85,8 +83,6 @@ function App() {
 
         <button onClick={submitReview}>Submit</button>
 
-        {console.log(movieReviewsList)}
-
         <h2> 🖊 The reviews:</h2>
 
         {movieReviewsList.map((movie, index) => {
@@ -94,7 +90,6 @@ function App() {
               <div key={index} className='card'>
                 <h3>{movie.movie_name} </h3>
                 <p>{movie.movie_review}</p>
-                {console.log(movie.movie_name)}
                 <button onClick={() => deleteReview(movie.movie_name)}>Delete</button>
                 <input 
                   type='text' 
